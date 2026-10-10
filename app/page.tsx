@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SmoothScrollLink from "./smooth-scroll-link";
 import {
   LuArrowDown,
   LuArrowUpRight,
@@ -125,28 +126,33 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
 
 export default function Home() {
   return (
-    <main className="overflow-hidden bg-white text-black">
-      <header className="mx-auto flex w-full max-w-6xl items-center justify-between border-b-2 border-black px-5 py-5 sm:px-8 lg:px-10">
-        <a href="#top" aria-label="Beranda Kontrakan Production" className="inline-flex items-center">
-          <img
-            src="/icon-long.jpg"
-            alt="Logo Kontrakan Production"
-            className="h-10 w-full object-cover"
-          />
-        </a>
-        <nav className="hidden items-center gap-8 text-sm font-semibold md:flex" aria-label="Navigasi utama">
-          <a className="transition hover:underline" href="#work">Karya</a>
-          <a className="transition hover:underline" href="#services">Layanan</a>
-          <a className="transition hover:underline" href="#studio">Studio</a>
-        </nav>
-        <a className="inline-flex items-center gap-2 border-2 border-black px-4 py-2.5 text-sm font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]" href="#contact">
-          Mari ngobrol <LuArrowUpRight className="h-4 w-4" aria-hidden="true" />
-        </a>
+    <>
+      <header className="fixed inset-x-0 top-0 z-50 w-full border-b-2 border-black bg-white">
+        <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-5 sm:px-8 lg:px-10">
+          <a href="#" aria-label="Beranda Kontrakan Production" className="inline-flex shrink-0 items-center">
+            <Image
+              src="/icon-long.jpg"
+              alt="Logo Kontrakan Production"
+              width={280}
+              height={70}
+              className="h-8 w-auto object-contain sm:h-10"
+            />
+          </a>
+          <nav className="hidden items-center gap-8 text-sm font-bold md:flex" aria-label="Navigasi utama">
+            <SmoothScrollLink className="uppercase transition-colors hover:text-zinc-600" href="#work">Karya</SmoothScrollLink>
+            <SmoothScrollLink className="uppercase transition-colors hover:text-zinc-600" href="#services">Layanan</SmoothScrollLink>
+            <SmoothScrollLink className="uppercase transition-colors hover:text-zinc-600" href="#studio">Studio</SmoothScrollLink>
+          </nav>
+          <SmoothScrollLink className="inline-flex shrink-0 items-center gap-1.5 border-2 border-black px-2.5 py-2 text-xs font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] sm:gap-2 sm:px-4 sm:py-2.5 sm:text-sm" duration={700} href="#contact">
+            Mari ngobrol <LuArrowUpRight className="h-4 w-4" aria-hidden="true" />
+          </SmoothScrollLink>
+        </div>
       </header>
 
-      <section id="top" className="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-10 lg:pt-28">
+      <main className="overflow-hidden bg-white pt-20 text-black">
+      <section className="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-10 lg:pt-28">
         <div className="relative z-10">
-          <SectionLabel>Tiga orang, satu tim kreatif</SectionLabel>
+          <SectionLabel>kontrakan production</SectionLabel>
           <h1 className="max-w-2xl text-5xl font-black leading-[0.98] sm:text-6xl lg:text-7xl">
             Karya digital,<br />dengan <span className="underline decoration-4 underline-offset-8">amanah.</span>
           </h1>
@@ -154,9 +160,9 @@ export default function Home() {
             Sejak 2020, kami membantu UMKM, biro perjalanan Haji dan Umrah, serta pondok pesantren melalui website, desain, SEO, dan konten digital. Kami berharap setiap karya membawa manfaat dan keberkahan.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-4">
-            <a className="inline-flex min-h-12 items-center gap-3 border-2 border-black bg-black px-5 py-3 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]" href="#work">
+            <SmoothScrollLink className="inline-flex min-h-12 items-center gap-3 border-2 border-black bg-black px-5 py-3 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]" href="#work">
               Lihat kolaborasi kami <LuArrowDown className="h-4 w-4" aria-hidden="true" />
-            </a>
+            </SmoothScrollLink>
             <span className="font-mono text-xs font-bold uppercase text-zinc-500">Tim kecil. Peran saling melengkapi.</span>
           </div>
           <LuAsterisk className="absolute -right-1 top-0 hidden h-10 w-10 rotate-12 sm:block lg:-right-8" aria-hidden="true" />
@@ -285,7 +291,7 @@ export default function Home() {
           <h2 className="max-w-3xl text-4xl font-black leading-[1.02] sm:text-6xl">Ada kebutuhan digital?<br />Mari diskusikan bersama.</h2>
           <p className="mt-5 max-w-lg text-base leading-7 text-zinc-600">Ceritakan kebutuhan usaha atau lembaga Anda. Kami siap mendengarkan dan mencari bentuk kolaborasi yang sesuai, dengan harapan menjadi karya yang bermanfaat dan berkah.</p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <a className="inline-flex min-h-12 items-center gap-2 border-2 border-black bg-[#b8f28b] px-5 py-3 text-sm font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]" href="https://wa.me/?text=Halo%20Kontrakan%20Production%2C%20saya%20ingin%20berdiskusi%20tentang%20kebutuhan%20digital." target="_blank" rel="noopener noreferrer">
+            <a className="inline-flex min-h-12 items-center gap-2 border-2 border-black bg-[#b8f28b] px-5 py-3 text-sm font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]" href="https://wa.me/6281290158831/?text=Halo%20Kontrakan%20Production%2C%20saya%20ingin%20berdiskusi%20tentang%20kebutuhan%20digital." target="_blank" rel="noopener noreferrer">
               <LuMessageCircle className="h-5 w-5" aria-hidden="true" /> Hubungi kami via WhatsApp <LuArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </div>
@@ -294,7 +300,7 @@ export default function Home() {
 
       <footer className="border-t-2 border-black">
         <div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-7 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-10">
-          <a href="#top" aria-label="Beranda Kontrakan Production" className="inline-flex items-center">
+          <a href="#" aria-label="Beranda Kontrakan Production" className="inline-flex items-center">
             <Image
               src="/icon-long.jpg"
               alt="Logo Kontrakan Production"
@@ -304,9 +310,10 @@ export default function Home() {
             />
           </a>
           <span className="text-zinc-600">Berkarya dengan amanah, berharap membawa keberkahan.</span>
-          <a className="inline-flex items-center gap-1 font-bold" href="#top">Kembali ke atas <LuArrowUpRight className="h-4 w-4" aria-hidden="true" /></a>
+          <SmoothScrollLink className="inline-flex items-center gap-1 font-bold" duration={700} href="#">Kembali ke atas <LuArrowUpRight className="h-4 w-4" aria-hidden="true" /></SmoothScrollLink>
         </div>
       </footer>
-    </main>
+      </main>
+    </>
   );
 }
