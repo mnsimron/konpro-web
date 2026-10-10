@@ -39,17 +39,21 @@ const services: { title: string; description: string; icon: IconType }[] = [
 const projects = [
   {
     number: "01",
-    name: "UMKM & Usaha Lokal",
-    type: "Logo · Identitas merek · Website",
-    description: "Mendukung kebutuhan digital usaha, dari materi visual hingga pengembangan website.",
-    artwork: "market",
+    name: "Bolu Ketan Hitam",
+    type: "UMKM · Website",
+    description: "Website untuk memperkenalkan produk dan informasi pemesanan bolu.",
+    image: "/bolu-contoh.png",
+    imageAlt: "Tampilan website Bolu Ketan Hitam",
+    website: "https://www.boluketanhitambogor.com/",
   },
   {
     number: "02",
-    name: "Biro Haji & Umrah",
-    type: "Konten media sosial · Foto/video",
-    description: "Konten visual untuk membantu informasi layanan tersampaikan dengan lebih jelas.",
-    artwork: "field",
+    name: "Indo Rihlah",
+    type: "Travel Umrah · Website",
+    description: "Website biro travel Umrah dengan informasi layanan dan konsultasi perjalanan.",
+    image: "/indorihlah-contoh.png",
+    imageAlt: "Tampilan website Indo Rihlah Utama",
+    website: "https://indorihlah.com/",
   },
 ];
 
@@ -68,50 +72,24 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function ProjectArtwork({ artwork }: { artwork: string }) {
-  if (artwork === "market") {
-    return (
-      <div className="relative flex min-h-64 items-center justify-center overflow-hidden border-2 border-black bg-[#f2f2ef] p-6 sm:min-h-72">
-        <div className="absolute left-5 top-5 font-mono text-[10px] font-bold uppercase">Karya untuk usaha sekitar</div>
-        <div className="relative flex h-44 w-44 items-center justify-center rounded-full border-2 border-black bg-white sm:h-52 sm:w-52">
-          <div className="flex h-32 w-32 items-center justify-center rounded-full border-2 border-black text-center text-3xl font-black leading-none sm:h-40 sm:w-40 sm:text-4xl">
-            USAHA<br />LOKAL
-          </div>
-          <LuAsterisk className="absolute -right-5 top-3 h-12 w-12" aria-hidden="true" />
-          <span className="absolute -bottom-4 left-0 rotate-[-8deg] border-2 border-black bg-white px-3 py-1 font-mono text-[10px] font-bold uppercase">
-            Tumbuh bersama
-          </span>
-        </div>
-        <span className="absolute bottom-5 right-5 font-mono text-xs">SEJAK 2020</span>
-      </div>
-    );
-  }
-
-  return (
-    <div className="relative min-h-64 overflow-hidden border-2 border-black bg-[#f2f2ef] p-5 sm:min-h-72">
-      <div className="flex items-center justify-between font-mono text-[10px] font-bold uppercase">
-        <span>Informasi yang bermanfaat</span>
-        <LuArrowUpRight className="h-4 w-4" aria-hidden="true" />
-      </div>
-      <div className="mt-8 grid grid-cols-2 gap-3">
-        <div className="flex h-32 items-end border-2 border-black bg-white p-3 sm:h-36">
-          <span className="font-mono text-[10px] font-bold uppercase">Dikerjakan dengan amanah</span>
-        </div>
-        <div className="flex h-32 items-center justify-center border-2 border-black bg-white sm:h-36">
-          <div className="h-20 w-20 rotate-12 border-2 border-black sm:h-24 sm:w-24" />
-        </div>
-      </div>
-      <div className="absolute bottom-7 left-1/2 flex h-12 w-12 -translate-x-1/2 items-center justify-center border-2 border-black bg-white">
-        <LuAsterisk className="h-7 w-7" aria-hidden="true" />
-      </div>
-    </div>
-  );
-}
-
 function ProjectCard({ project }: { project: (typeof projects)[number] }) {
   return (
     <article className="group border-2 border-black bg-white p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition duration-200 hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-      <ProjectArtwork artwork={project.artwork} />
+      <a
+        href={project.website}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Kunjungi website ${project.name} di tab baru`}
+        className="relative block aspect-[2/1] overflow-hidden border-2 border-black bg-white"
+      >
+        <Image
+          src={project.image}
+          alt={project.imageAlt}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-contain"
+        />
+      </a>
       <div className="flex flex-col gap-3 px-2 pb-2 pt-5 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="mb-2 font-mono text-[10px] font-bold uppercase text-zinc-500">{project.type}</p>
