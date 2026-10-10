@@ -178,7 +178,7 @@ export default function Home() {
             <div className="relative mt-3 flex min-h-72 flex-col justify-between overflow-hidden border-2 border-black bg-[#f2f2ef] p-5 sm:min-h-80 sm:p-7">
               <div className="flex items-center justify-between font-mono text-[10px] font-bold uppercase">
                 <span>Kontrakan / Studio</span>
-                <LuMousePointer2 className="h-5 w-5" aria-hidden="true" />
+                <LuMousePointer2 className="pointer-drift h-5 w-5" aria-hidden="true" />
               </div>
               <div className="relative z-10 py-8">
                 <p className="font-mono text-xs font-bold uppercase">Dikerjakan dengan amanah</p>
@@ -192,8 +192,8 @@ export default function Home() {
                 </div>
                 <span className="rotate-[-5deg] border-2 border-black bg-white px-3 py-2 font-mono text-[10px] font-bold uppercase">Saling melengkapi</span>
               </div>
-              <span className="absolute -right-7 top-1/3 h-24 w-24 rounded-full border-2 border-black" aria-hidden="true" />
-              <span className="absolute -right-2 top-[38%] h-14 w-14 rounded-full border-2 border-black bg-white" aria-hidden="true" />
+              <span className="pulse-ring absolute -right-7 top-1/3 h-24 w-24 rounded-full border-2 border-black" aria-hidden="true" />
+              <span className="pulse-ring pulse-ring-delay absolute -right-2 top-[38%] h-14 w-14 rounded-full border-2 border-black bg-white" aria-hidden="true" />
             </div>
             <div className="flex justify-between px-1 pt-3 font-mono text-[10px] font-bold uppercase">
               <span>Web / Desain / Konten</span><span>01 — 03</span>
